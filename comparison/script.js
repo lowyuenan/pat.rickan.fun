@@ -9,6 +9,5 @@ wrapper.addEventListener("mousemove", function (e) {
   var width = (x / wrapper_width) * 100;
   photo.style.clipPath =
     "polygon(0 0, " + width + "% 0, " + width + "% 100%, 0 100%)";
-
-  separator.style.left = (x / wrapper_width) * 100 + "%";
+  separator.style.left = width + "%";
 });
