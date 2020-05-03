@@ -1,0 +1,16 @@
+svg {
+  width: 500px;
+  stroke-dasharray: 1700;
+  animation: draw 6s infinite linear;
+  stroke: #b82b2b;
+}
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1700;
+  }
+
+  100% {
+    stroke-dashoffset: 5100;
+  }
+}
