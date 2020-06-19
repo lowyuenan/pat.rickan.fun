@@ -1,0 +1,133 @@
+body {
+  margin: 0;
+}
+
+* {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.screen {
+  width: 100%;
+  height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.screen .wrapper {
+  max-width: 900px;
+  height: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.lya-social-button {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  transform: translate(-50%, -50%);
+}
+
+.lya-social-button.lya-top-left {
+  left: 0;
+  top: 0;
+}
+
+.lya-social-button.lya-top-right {
+  left: 100%;
+  top: 0;
+}
+
+.lya-social-button.lya-bottom-left {
+  left: 0;
+  top: 100%;
+}
+
+.lya-social-button.lya-bottom-right {
+  left: 100%;
+  top: 100%;
+}
+
+.lya-social-button.lya-top {
+  left: 50%;
+  top: 0;
+}
+
+.lya-social-button.lya-right {
+  left: 100%;
+  top: 50%;
+}
+
+.lya-social-button.lya-bottom {
+  left: 50%;
+  top: 100%;
+}
+
+.lya-social-button.lya-left {
+  left: 0;
+  top: 50%;
+}
+
+.lya-social-button.lya-center {
+  left: 50%;
+  top: 50%;
+}
+
+.lya-social-button .buttons {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.lya-social-button .share,
+.lya-social-button .buttons li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.lya-social-button .share {
+  z-index: 10;
+  background-color: #8233c4;
+  font-size: 20px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lya-social-button .buttons li {
+  background-color: #8233c4;
+  z-index: 5;
+  transition: 0.3s;
+  list-style: none;
+  opacity: 0;
+}
+
+.lya-social-button .buttons li.pop {
+  opacity: 1;
+}
+
+.lya-social-button .buttons li a {
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
