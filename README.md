@@ -1,3 +1,3 @@
 ## Build for fun
 
-Some raw files from [pat.rickan.fun](https://pat.rickan.fun)
+Some raw code from [rickan.fun](https://rickan.fun)
