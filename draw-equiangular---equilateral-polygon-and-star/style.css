@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  font-family: arial;
+}
+
+* {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wrapper {
+  max-width: 1200px;
+  position: relative;
+  margin: auto;
+  font-size: 0;
+  text-align: center;
+}
+
+.lya-nth-polygon {
+  display: inline-block;
+  width: 250px;
+  height: 250px;
+  margin: 25px;
+}
+
+.lya-nth-polygon:nth-child(8n + 1) {
+  background-color: #dd2c2c;
+}
+
+.lya-nth-polygon:nth-child(8n + 2) {
+  background-color: #f2ff3b;
+}
+
+.lya-nth-polygon:nth-child(8n + 3) {
+  background-color: #e98534;
+}
+
+.lya-nth-polygon:nth-child(8n + 4) {
+  background-color: #2cda2c;
+}
+
+.lya-nth-polygon:nth-child(8n + 5) {
+  background-color: #51d3e4;
+}
+
+.lya-nth-polygon:nth-child(8n + 6) {
+  background-color: #2926be;
+}
+
+.lya-nth-polygon:nth-child(8n + 7) {
+  background-color: #9a15d8;
+}
+
+.lya-nth-polygon:nth-child(8n) {
+  background-color: #ff4ebb;
+}
