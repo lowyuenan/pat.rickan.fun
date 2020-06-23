@@ -9,6 +9,8 @@
 
   const SQUARE_CLIP_SIZE = 20;
 
+  const INSET_CLIP_ROUND = 0;
+
   const POLYGON_CLIP_SIZE = 25;
 
   const STAR_CLIP_SIZE = 25;
@@ -35,14 +37,16 @@
       case wrapper.classList.contains("square"):
         clipMove = clipSquare(
           cliped_image,
-          wrapper.dataset.size ?? SQUARE_CLIP_SIZE
+          wrapper.dataset.size ?? SQUARE_CLIP_SIZE,
+          wrapper.dataset.round ?? INSET_CLIP_ROUND
         );
         break;
       case wrapper.classList.contains("rect"):
         clipMove = clipRect(
           cliped_image,
           wrapper.dataset.sizeX ?? RECT_CLIP_SIZE_X,
-          wrapper.dataset.sizeY ?? RECT_CLIP_SIZE_Y
+          wrapper.dataset.sizeY ?? RECT_CLIP_SIZE_Y,
+          wrapper.dataset.round ?? INSET_CLIP_ROUND
         );
         break;
       case wrapper.classList.contains("polygon"):
@@ -121,27 +125,28 @@
     return `ellipse(${size_x}% ${size_y}% at ${x}% ${y}%)`;
   }
 
-  function clipRect(cliped_image, clip_size_x, clip_size_y) {
+  function clipRect(cliped_image, clip_size_x, clip_size_y, round) {
     return (e) => {
       const pos = getEventPos(cliped_image, e);
       cliped_image.style.clipPath = clipRectStr(
         clip_size_x,
         clip_size_y,
         pos.x,
-        pos.y
+        pos.y,
+        round
       );
     };
   }
 
-  function clipRectStr(size_x, size_y, x, y) {
+  function clipRectStr(size_x, size_y, x, y, r) {
     const h_x = size_x / 2;
     const h_y = size_y / 2;
-    return `polygon(${x - h_x}% ${y - h_y}%, ${x + h_x}% ${y - h_y}%, ${
-      x + h_x
-    }% ${y + h_y}%, ${x - h_x}% ${y + h_y}%)`;
+    return `inset(${y - h_y}% ${100 - x - h_x}% ${100 - y - h_y}% ${
+      x - h_x
+    }% round ${r}%)`;
   }
 
-  function clipSquare(cliped_image, clip_size) {
+  function clipSquare(cliped_image, clip_size, round) {
     return (e) => {
       const pos = getEventPos(cliped_image, e);
       cliped_image.style.clipPath = clipSquareStr(
@@ -149,18 +154,19 @@
         pos.x,
         pos.y,
         pos.w,
-        pos.h
+        pos.h,
+        round
       );
     };
   }
 
-  function clipSquareStr(size, x, y, w, h) {
+  function clipSquareStr(size, x, y, w, h, r) {
     const s = (size / 200) * w;
     const h_x = (s / w) * 100;
     const h_y = (s / h) * 100;
-    return `polygon(${x - h_x}% ${y - h_y}%, ${x + h_x}% ${y - h_y}%, ${
-      x + h_x
-    }% ${y + h_y}%, ${x - h_x}% ${y + h_y}%)`;
+    return `inset(${y - h_y}% ${100 - x - h_x}% ${100 - y - h_y}% ${
+      x - h_x
+    }% round ${r}%)`;
   }
 
   function clipPolygon(cliped_image, clip_size, nth) {
